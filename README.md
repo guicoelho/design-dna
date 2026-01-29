@@ -1,7 +1,7 @@
 # DESIGN DNA
 
 [![npm version](https://img.shields.io/npm/v/design-dna.svg)](https://www.npmjs.com/package/design-dna)
-[![license](https://img.shields.io/npm/l/design-dna.svg)](https://github.com/iamguico/design-dna/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/design-dna.svg)](https://github.com/guicoelho/design-dna/blob/main/LICENSE)
 
 **Encode your design taste into DNA. Every line of AI-generated code looks like yours.**
 

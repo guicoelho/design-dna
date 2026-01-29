@@ -21,11 +21,11 @@
   "license": "MIT",
   "homepage": "https://design-dna.dev",
   "bugs": {
-    "url": "https://github.com/iamguico/design-dna/issues"
+    "url": "https://github.com/guicoelho/design-dna/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamguico/design-dna"
+    "url": "https://github.com/guicoelho/design-dna"
   },
   "engines": {
     "node": ">=18.0.0"
