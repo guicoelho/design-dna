@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design DNA — Encode your design taste for AI</title>
+  <meta name="description" content="Encode your design taste into DNA. Every line of AI-generated code looks like yours.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="https://github.com/guicoelho/design-dna" class="github-btn">GitHub</a>
+  </nav>
+  <div class="page-layout">
+  <aside class="section-nav" aria-label="Section navigation">
+    <ul>
+      <li><a href="#problem" data-section="problem"><span class="marker">*</span>The problem</a></li>
+      <li><a href="#how-it-works" data-section="how-it-works"><span class="marker">*</span>How it works</a></li>
+      <li><a href="#output" data-section="output"><span class="marker">*</span>Output</a></li>
+    </ul>
+  </aside>
+  <main>
+    <section class="hero" id="hero">
+      <h1>Design DNA</h1>
+      <p class="subtitle">Encode your design taste into DNA.<br>So that every piece of AI-generated UI looks like you.</p>
+      <pre><code>npx design-dna</code></pre>
+    </section>
+
+    <section class="problem" id="problem">
+      <h2>The Problem</h2>
+      <p>AI builds UI fast. But it doesn't know your taste and design vision.</p>
+      <p>You get a settings page that works. It's "clean." And it looks nothing like the rest of your product. Wrong spacing, wrong hierarchy, wrong component patterns, wrong vibe.</p>
+      <p>Design DNA lets you encode your taste once &mdash; your preferences, your principles, your opinion about how things should look and feel &mdash; into design DNA. From that point on, every line of AI-generated UI code comes out looking like it was built by someone who gets it.</p>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <h2>How It Works</h2>
+
+      <div class="step">
+        <h3>1. Init</h3>
+        <pre><code>/dc:init</code></pre>
+        <p>Scans your codebase, asks you a few design questions, and generates your DNA: a structured spec of your product's taste, principles, and visual language. Also generates lookbook pages as golden reference implementations.</p>
+      </div>
+
+      <div class="step">
+        <h3>2. Check</h3>
+        <pre><code>/dc:check</code></pre>
+        <p>Audits code against your DNA. Reports exactly what drifted, where, and why it matters.</p>
+        <pre class="output"><code>DRIFT DETECTED in Settings.tsx
+
+Mechanical:
+  Line 34: Button uses px-4 py-2 — DNA specifies px-3 py-1.5 for secondary actions
+  Line 67: Card radius is rounded-lg (8px) — DNA specifies rounded-xl (12px)
+
+Judgment:
+  Line 89: Empty state uses illustration — DNA principle: "icons functional, not decorative"
+
+3 issues · 2 auto-fixable · 1 needs review</code></pre>
+      </div>
+
+      <div class="step">
+        <h3>3. Update</h3>
+        <pre><code>/dc:update the buttons feel too chunky</code></pre>
+        <p>Describe what's off in your own words. Design DNA translates that into precise DNA changes. Works with plain language, Figma files, URLs, screenshots.</p>
+      </div>
+
+      <div class="step">
+        <h3>4. Help</h3>
+        <pre><code>/dc:help</code></pre>
+        <p>That's it. Four commands.</p>
+      </div>
+    </section>
+
+    <section class="output-section" id="output">
+      <h2>What Gets Generated</h2>
+      <pre><code>.design/
+  DNA.md              # Your taste, encoded
+  principles.md       # Design principles with examples
+  components/         # Per-component specs
+  patterns/           # Interaction and layout patterns
+  lookbook/           # Golden reference implementations</code></pre>
+    </section>
+
+    <section class="cta" id="cta">
+      <h2>You have taste. Now your AI does too.</h2>
+      <pre><code>npx design-dna</code></pre>
+      <p class="links">
+        <a href="https://www.npmjs.com/package/design-dna">npm</a>
+        <a href="https://github.com/guicoelho/design-dna">GitHub</a>
+      </p>
+    </section>
+  </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre').forEach(function(pre) {
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied';
+          setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        });
+      });
+      pre.style.position = 'relative';
+      pre.appendChild(btn);
+    });
+
+    (function() {
+      var navLinks = document.querySelectorAll('.section-nav a');
+      var sections = Array.prototype.map.call(navLinks, function(link) {
+        return document.getElementById(link.dataset.section);
+      });
+      var isClickScrolling = false;
+
+      function setActive(id) {
+        navLinks.forEach(function(link) { link.classList.remove('active'); });
+        if (id) {
+          var active = document.querySelector('.section-nav a[data-section="' + id + '"]');
+          if (active) active.classList.add('active');
+        }
+      }
+
+      function updateActiveSection() {
+        if (isClickScrolling) return;
+        var activationPoint = window.innerHeight * 0.4;
+        var activeId = null;
+        for (var i = sections.length - 1; i >= 0; i--) {
+          if (sections[i] && sections[i].getBoundingClientRect().top <= activationPoint) {
+            activeId = sections[i].id;
+            break;
+          }
+        }
+        setActive(activeId);
+      }
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          isClickScrolling = true;
+          setActive(link.dataset.section);
+          setTimeout(function() { isClickScrolling = false; }, 1000);
+        });
+      });
+
+      updateActiveSection();
+    })();
+  </script>
+</body>
+</html>
