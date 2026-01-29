@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const readline = require("readline");
 
-const COMMANDS_DIR = path.join(__dirname, "..", "commands", "dc");
+const COMMANDS_DIR = path.join(__dirname, "..", "commands", "dna");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -53,7 +53,7 @@ async function main() {
   const commandsTarget = path.join(base, "commands");
 
   // Copy commands
-  const commandsDest = path.join(commandsTarget, "dc");
+  const commandsDest = path.join(commandsTarget, "dna");
   const commandCount = copyDir(COMMANDS_DIR, commandsDest);
 
   console.log();
@@ -61,7 +61,7 @@ async function main() {
   console.log();
   console.log("  Next steps:");
   console.log("  1. Restart Claude Code to load the new commands");
-  console.log("  2. Run /dc:init to capture your design DNA");
+  console.log("  2. Run /dna:init to capture your design DNA");
   console.log();
 
   rl.close();

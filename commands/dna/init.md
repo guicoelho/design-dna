@@ -399,7 +399,7 @@ ALWAYS read `.design/DNA.md` before generating, modifying, or reviewing any UI c
 
 Every UI decision must align with the DNA. If a decision isn't covered by the DNA, flag it and ask rather than guessing.
 
-Run `/dc:check` after making UI changes to verify compliance.
+Run `/dna:check` after making UI changes to verify compliance.
 ```
 
 ---
@@ -413,7 +413,7 @@ Present the user with:
    - "Review `.design/DNA.md` -- this is the seed for all future design work. If something is wrong in the seed, everything that grows from it will be wrong too."
    - "Look at the lookbook pages in `.design/lookbook/`. Tweak them until they're perfect -- these are the golden references Claude will use."
 3. How to give feedback:
-   - "If anything doesn't look right, just tell me what's off. You don't need to speak in specs -- describe it naturally and I'll update the DNA. Run `/dc:update` anytime."
+   - "If anything doesn't look right, just tell me what's off. You don't need to speak in specs -- describe it naturally and I'll update the DNA. Run `/dna:update` anytime."
 4. What happens next:
    - "From now on, Claude will automatically read your DNA before doing any UI work on this project. The design system is active."
 

@@ -30,7 +30,7 @@ Design DNA lets you encode your taste once -- your preferences, your principles,
 ### 1. Init
 
 ```
-/dc:init
+/dna:init
 ```
 
 Design DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
@@ -42,7 +42,7 @@ It also generates lookbook pages: golden reference implementations that show the
 ### 2. Check
 
 ```
-/dc:check
+/dna:check
 ```
 
 Audits code against your DNA. Reports exactly what drifted, where, and why it matters.
@@ -63,7 +63,7 @@ Judgment:
 ### 3. Update
 
 ```
-/dc:update the buttons feel too chunky
+/dna:update the buttons feel too chunky
 ```
 
 Describe what's off in your own words. Design DNA translates that into precise DNA changes.
@@ -73,7 +73,7 @@ Works with plain language, Figma files, URLs, screenshots -- whatever you have.
 ### 4. Help
 
 ```
-/dc:help
+/dna:help
 ```
 
 That's it. Four commands.
@@ -101,7 +101,7 @@ Design DNA also updates your `CLAUDE.md` so Claude reads the DNA before any UI w
 npx design-dna
 ```
 
-The installer copies slash commands into your project. Then run `/dc:init` to encode your taste.
+The installer copies slash commands into your project. Then run `/dna:init` to encode your taste.
 
 ---
 
