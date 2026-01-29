@@ -89,7 +89,6 @@ That's it. Four commands.
   components/         # Per-component specs (variants, states, values)
   patterns/           # Interaction and layout patterns
   lookbook/           # Golden reference implementations
-  decisions/          # Log of every DNA change and why
 ```
 
 DESIGN DNA also updates your `CLAUDE.md` so Claude reads the DNA before any UI work -- automatically.

@@ -75,7 +75,7 @@ Compile everything you found into an internal summary. Do not show this raw to t
 ## Step 2: Create Directory Structure
 
 ```
-mkdir -p .design/components .design/patterns .design/lookbook .design/decisions
+mkdir -p .design/components .design/patterns .design/lookbook
 ```
 
 ---
