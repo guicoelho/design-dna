@@ -1,9 +1,9 @@
-# DESIGN DNA
+# DESIGN DNA (For Claude Code)
 
 [![npm version](https://img.shields.io/npm/v/design-dna.svg)](https://www.npmjs.com/package/design-dna)
 [![license](https://img.shields.io/npm/l/design-dna.svg)](https://github.com/guicoelho/design-dna/blob/main/LICENSE)
 
-**Encode your design taste into DNA. Every line of AI-generated code looks like yours.**
+**Encode your design taste & principles into "design DNA". Every piece of AI-generated UI looks like your product and vision**
 
 ---
 
@@ -15,7 +15,7 @@ npx design-dna
 
 ## The Problem
 
-AI builds UI fast. But it doesn't know your taste.
+AI builds UI fast. But it doesn't know your taste and design vision.
 
 You get a settings page that works. It's "clean." And it looks nothing like the rest of your product. Wrong spacing, wrong hierarchy, wrong component patterns, wrong vibe.
 
@@ -33,9 +33,9 @@ DESIGN DNA lets you encode your taste once -- your preferences, your principles,
 /dc:init
 ```
 
-DESIGN DNA scans your codebase, asks you a few high-level design questions -- the kind a design leader can answer naturally -- and generates your DNA: a structured spec of your product's taste, principles, and visual language.
+DESIGN DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
 
-It also generates lookbook pages: golden reference implementations that show the DNA in action.
+It also generates lookbook pages: golden reference implementations that show the DNA in action, and serve as guidance for Claude. 
 
 **Output:** `.design/DNA.md`, component specs, pattern specs, lookbook pages.
 
