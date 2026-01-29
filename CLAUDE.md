@@ -13,4 +13,4 @@ ALWAYS read `.design/DNA.md` before generating, modifying, or reviewing any UI c
 
 Every UI decision must align with the DNA. If a decision isn't covered by the DNA, flag it and ask rather than guessing.
 
-Run `/dc:check` after making UI changes to verify compliance.
+Run `/dna:check` after making UI changes to verify compliance.

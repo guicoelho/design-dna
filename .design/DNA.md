@@ -13,9 +13,9 @@ Design DNA is an npm package that installs slash commands into Claude Code proje
 Single-page marketing site. Linear scroll: hero, problem statement, how it works (4 steps), what gets generated, CTA. No sub-pages, no routing. The entire story is told in one vertical flow.
 
 ### Core Objects
-- **Commands**: The four slash commands (`/dc:init`, `/dc:check`, `/dc:update`, `/dc:help`) are the product's core concept
+- **Commands**: The four slash commands (`/dna:init`, `/dna:check`, `/dna:update`, `/dna:help`) are the product's core concept
 - **DNA**: The `.design/` directory output -- the encoded taste
-- **Drift**: The concept of code diverging from DNA -- what `/dc:check` detects
+- **Drift**: The concept of code diverging from DNA -- what `/dna:check` detects
 
 ### Navigation Model
 Two navigation elements:
