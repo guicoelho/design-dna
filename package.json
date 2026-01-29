@@ -1,0 +1,39 @@
+{
+  "name": "design-dna",
+  "version": "0.1.0",
+  "description": "Encode your design taste into DNA. Every line of AI-generated code looks like yours.",
+  "type": "commonjs",
+  "bin": {
+    "design-dna": "./bin/install.js"
+  },
+  "keywords": [
+    "design-system",
+    "design-dna",
+    "claude-code",
+    "ai",
+    "design",
+    "ui",
+    "slash-commands",
+    "design-tokens",
+    "design-enforcement"
+  ],
+  "author": "Gui Coelho",
+  "license": "MIT",
+  "homepage": "https://design-dna.dev",
+  "bugs": {
+    "url": "https://github.com/iamguico/design-dna/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamguico/design-dna"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin/",
+    "commands/",
+    "LICENSE",
+    "README.md"
+  ]
+}
