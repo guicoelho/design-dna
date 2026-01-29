@@ -26,7 +26,7 @@ If `.design/` is not found in the project root, look for it in parent directorie
 3. Glob for `.design/patterns/*.md` and read each
 4. Read `.design/principles.md` if it exists
 
-If `.design/DNA.md` does not exist, inform the user: "No design DNA found. Run /dc:init to capture your design system first." Then stop.
+If `.design/DNA.md` does not exist, inform the user: "No design DNA found. Run /dna:init to capture your design system first." Then stop.
 
 Build a mental model of the design system. Understand not just the values but the intent behind them -- the visual direction, the principles, the signature details. You need this context to evaluate judgment calls.
 
@@ -39,7 +39,7 @@ Build a mental model of the design system. Understand not just the values but th
 git diff --name-only
 git diff --cached --name-only
 ```
-Combine and deduplicate. Filter to UI-related files (`.tsx`, `.jsx`, `.vue`, `.svelte`, `.html`, `.css`, `.scss`, `.module.css`, `.astro`). If none found: "No staged or changed UI files found. Specify a file: /dc:check path/to/file" Then stop.
+Combine and deduplicate. Filter to UI-related files (`.tsx`, `.jsx`, `.vue`, `.svelte`, `.html`, `.css`, `.scss`, `.module.css`, `.astro`). If none found: "No staged or changed UI files found. Specify a file: /dna:check path/to/file" Then stop.
 
 Read each target file.
 
