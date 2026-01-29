@@ -77,38 +77,7 @@ Once confirmed:
 2. Create new component/pattern files if needed.
 3. Update DNA.md sections that reference the changed values.
 
-### Step 5: Log the Decision
-
-Create `.design/decisions/YYYY-MM-DD-<slug>.md`:
-
-```markdown
-# <Title>
-
-**Date:** YYYY-MM-DD
-**Status:** Active
-
-## What Changed
-
-<Specific changes made>
-
-## Why
-
-<User's original feedback, in their words>
-
-## Old Value
-
-<Previous specs>
-
-## New Value
-
-<Updated specs>
-
-## Affected Files
-
-<List of .design/ files modified>
-```
-
-### Step 6: Scan for Impact
+### Step 5: Scan for Impact
 
 Automatically scan the codebase for files affected by the change:
 
@@ -116,19 +85,17 @@ Automatically scan the codebase for files affected by the change:
 2. Exclude `.design/`, `.git/`, `node_modules/`
 3. Report the count and list affected files
 
-### Step 7: Report
+### Step 6: Report
 
 ```
 DNA Updated:
   - <change 1>
   - <change 2>
 
-Decision logged: .design/decisions/YYYY-MM-DD-<slug>.md
-
 Found N files using old values -- review these to ensure they match the updated DNA.
 ```
 
-### Step 8: Update Lookbooks (if relevant)
+### Step 7: Update Lookbooks (if relevant)
 
 If the changes affect visual output and lookbook pages exist in `.design/lookbook/`:
 
@@ -143,6 +110,5 @@ If no lookbook pages exist, skip this step silently.
 
 - Meet the user where they are. Accept vague feedback and make it specific.
 - Always confirm your interpretation before applying changes.
-- Always create a decision log entry.
 - Always scan for codebase impact.
 - If the user mentions Figma, treat it as a source of truth -- fetch from it, diff against DNA, propose changes like any other update.
