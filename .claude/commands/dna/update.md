@@ -75,7 +75,8 @@ Once confirmed:
 
 1. Edit the relevant `.design/` files using Edit. Preserve structure.
 2. Create new component/pattern files if needed.
-3. Update DNA.md sections that reference the changed values.
+3. If the change affects values in DNA.md (visual language tokens, tech stack, product mental model), update DNA.md too.
+4. If you add new component or pattern files, add them to the inventory lists in DNA.md sections 4/5.
 
 ### Step 5: Scan for Impact
 

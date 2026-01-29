@@ -187,16 +187,42 @@ Keep these tactical -- the user has already given you the vision, now you're fil
 
 Using your baseline scan + the user's answers, generate the complete design DNA.
 
+The `.design/` directory is the single source of truth. DNA.md is the **index and overview** -- it frames the design DNA and points to the detailed files. Component specs, pattern specs, and principles each live in their own files. DNA.md should never duplicate content that has a dedicated file.
+
 The DNA is structured for maximum signal -- ordered by what has the most impact on whether AI-generated UI looks right, not by traditional design system taxonomy. An AI that understands the mental model, principles, and patterns will produce better UI than one that only knows the hex codes.
 
 ### `.design/DNA.md`
 
-This is the single source of truth. Structure it in this exact order:
+This is the overview and index for the entire `.design/` directory. It frames the design DNA at a high level and points to detailed specs in the other files. **DNA.md should never duplicate content that lives in component, pattern, or principle files.** If something has its own file, DNA.md links to it with a one-line summary -- it does not repeat the spec.
+
+Structure it in this exact order:
 
 ```markdown
 # Design DNA: [Product Name]
 
 > [One-line description of the product and its visual identity]
+
+This file is the index for the entire `.design/` directory. It frames the design DNA at a high level and points to detailed specs elsewhere. **Read the linked files for implementation details.**
+
+### Directory structure
+
+[Generate this based on the actual files you create. Example:]
+
+.design/
+  DNA.md              <- You are here. Overview and index.
+  principles.md       <- Design principles with examples and counter-examples
+  components/         <- Per-component specs with CSS/code
+    button.md
+    card.md
+    ...
+  patterns/           <- Recurring layout and interaction patterns
+    page-layout.md
+    forms.md
+    ...
+  lookbook/           <- Reference implementations
+    settings-page.tsx
+    dashboard.tsx
+    ...
 
 ---
 
@@ -220,22 +246,22 @@ What this product is, how it's organized, and how users think about it. An AI ca
 
 ## 2. Design Principles
 
-The unwritten rules that govern every decision. When in doubt, these are the tiebreaker. Ordered by priority.
+[Number] principles govern every decision. Ordered by priority. When in doubt, these are the tiebreaker.
 
-[Each principle should be a clear, opinionated statement with a concrete example of what it means in practice and what it rules out.]
-
-1. **[Principle name]**: [Statement]. Example: [do this]. Never: [don't do this].
-2. **[Principle name]**: [Statement]. Example: [do this]. Never: [don't do this].
+1. **[Principle name]** -- [One sentence summary of the principle]
+2. **[Principle name]** -- [One sentence summary of the principle]
 ...
+
+-> Full principles with examples, exceptions, and counter-examples: **[principles.md](principles.md)**
 
 ---
 
 ## 3. Visual Language
 
-The formal design parameters that define how this product looks and feels.
+The foundational design tokens. Components and patterns reference these values.
 
 ### Density & Spacing
-[Base unit, spacing scale, and the philosophy behind it. Is this a dense, information-rich UI or a spacious, breathing one? Specific values: base unit, scale, component internal padding, section spacing, page margins.]
+[Base unit, spacing scale, and the philosophy behind it. Is this a dense, information-rich UI or a spacious, breathing one? Specific values: base unit, scale, section spacing, page margins.]
 
 ### Colors
 [Complete color system with semantic meaning. Primary action, secondary, destructive, success, warning, borders, text hierarchy (primary/secondary/tertiary/disabled), backgrounds, surface colors. Include dark mode if applicable.]
@@ -244,7 +270,7 @@ The formal design parameters that define how this product looks and feels.
 [Font families (body, headings, mono), size scale, weight usage rules, line heights. When is each size/weight used?]
 
 ### Radius
-[Values per component type: buttons, cards, inputs, modals, pills/tags. The philosophy -- sharp and technical? Soft and friendly?]
+[Values per component type and the philosophy -- sharp and technical? Soft and friendly?]
 
 ### Shadows & Elevation
 [Shadow values, when to use shadow vs border for elevation. How many elevation levels?]
@@ -260,67 +286,55 @@ The formal design parameters that define how this product looks and feels.
 
 ---
 
-## 4. Component Specs
+## 4. Components
 
-How the building blocks of the UI should look and behave. These specs govern how the component library is used (and sometimes customized).
+Detailed specs with code for each component. **Read the linked files for full specs -- do not rely on this summary.**
 
-### [Component Name]
-[For each key component: variants, sizing, internal padding, colors, radius, hover/active/disabled states, which library component to use, usage rules -- when to use this vs alternatives.]
+- **[Button](components/button.md)** -- [One-line description, e.g., "embossed gradient with double-border technique"]
+- **[Card](components/card.md)** -- [One-line description]
+- ...
 
-[Repeat for each component: buttons, inputs, cards, modals/dialogs/drawers, tables, navigation elements, dropdowns/selects, badges/tags, toasts/notifications, tooltips, etc.]
+[List every component file you generated, with a markdown link and one-line description.]
 
 ---
 
 ## 5. Patterns
 
-Standard industry patterns and how we use them in this product. This is about the choices we've made for common UI problems.
+Recurring layout and interaction patterns. **Read the linked files for full specs.**
 
-### Actions & Confirmation
-[How do we handle: save/submit, delete/destructive actions, bulk actions? Do we use confirmation modals? Inline confirmation? Type-to-confirm? Auto-save?]
+- **[Page layout](patterns/page-layout.md)** -- [One-line description, e.g., "sidebar + content area, responsive collapse"]
+- **[Forms](patterns/forms.md)** -- [One-line description]
+- ...
 
-### Navigation Within Pages
-[Tabs? Sections with anchors? Accordion? Stepper for multi-step? How deep can in-page navigation go?]
-
-### Object Creation
-[How do users create new things? Modal form? Full page? Slide-over? Multi-step wizard? Inline creation?]
-
-### Object Editing
-[Inline editing? Edit mode toggle? Edit page? Modal? Auto-save or explicit save?]
-
-### Lists & Collections
-[How do we display lists of items? Table, card grid, list rows? How do we handle empty states, loading, filtering, sorting, pagination, bulk selection?]
-
-### Forms & Validation
-[Single page or multi-step? When does validation fire? How do errors display? Required field indicators? Help text placement?]
-
-### Feedback & Status
-[How do we show success, error, loading, progress? Toasts, inline messages, banners, progress bars? Auto-dismiss behavior?]
-
-### Empty States
-[What do empty states look like? Text only, icon + text, illustration? CTA placement? Tone?]
-
-### Loading States
-[Skeletons, spinners, or both? Full-page loading vs inline? When to use which?]
-
-### Error Handling
-[Inline field errors, toast errors, full-page errors, error boundaries. Retry behavior?]
+[List every pattern file you generated, with a markdown link and one-line description.]
 
 ---
 
-## 6. Signature Components
+## 6. Lookbook
 
-The non-standard, product-specific UI elements that make this product feel like *this* product. These are not industry patterns -- they are things built from scratch or heavily customized. They deserve special attention because they carry the most design identity.
+Reference implementations showing the DNA applied to real pages. Use these as ground truth when generating new pages or components.
+
+- **[Settings page](lookbook/settings-page.tsx)** -- [One-line description]
+- ...
+
+[List every lookbook file you generated, with a markdown link and one-line description.]
+
+---
+
+## 7. Signature Components
+
+The non-standard, product-specific UI elements that make this product feel like *this* product. These are not industry patterns -- they are things built from scratch or heavily customized.
 
 ### [Signature Component Name]
-[Detailed description: what it is, why it exists, exactly how it looks and behaves, what makes it special. Reference lookbook pages that demonstrate it.]
+[Detailed description: what it is, why it exists, exactly how it looks and behaves, what makes it special. Reference the component spec file and lookbook pages that demonstrate it.]
 
-[Repeat for each signature component. Examples: a custom command palette, a canvas editor, a chat interface, a real-time collaboration cursor, a timeline view, a custom dashboard widget system.]
+[Repeat for each signature component.]
 
 If this product has no signature components yet, omit this section.
 
 ---
 
-## 7. Tech Stack & Libraries
+## 8. Tech Stack & Libraries
 
 What to use, what to avoid, and how to import things.
 
@@ -335,24 +349,32 @@ What to use, what to avoid, and how to import things.
 
 ---
 
-## 8. References
+## 9. References
 
 Products or interfaces that inform this product's direction, and what to take from each.
 
 - **[Product Name]**: [What aspect is a reference -- layout? density? interaction model? visual style?]
 ```
 
+### `.design/principles.md`
+
+This is the canonical source for design principles. Each principle gets its own section with:
+- The principle statement
+- "In practice" examples showing what this looks like in the product
+- "Exceptions" if any
+- "What this rules out" -- concrete things that violate the principle
+
+DNA.md only lists the principle names with one-line summaries and points here.
+
 ### Component and Pattern Files
+
+These are the canonical specs. DNA.md only lists them as an inventory with one-line descriptions and links.
 
 For each component with enough detail, create `.design/components/<name>.md` with the full spec: every variant, every state, exact values, usage rules, code examples.
 
 For each pattern, create `.design/patterns/<name>.md` with: when to use, how it works, what to avoid, and a code sketch if useful.
 
 For each signature component, create `.design/components/<name>.md` with exhaustive detail -- these are the highest-signal specs in the system.
-
-### `.design/principles.md`
-
-The design principles as a standalone file with extended examples and counter-examples for each.
 
 ---
 
