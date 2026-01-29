@@ -1,4 +1,4 @@
-# DESIGN DNA (For Claude Code)
+# Design DNA (For Claude Code)
 
 [![npm version](https://img.shields.io/npm/v/design-dna.svg)](https://www.npmjs.com/package/design-dna)
 [![license](https://img.shields.io/npm/l/design-dna.svg)](https://github.com/guicoelho/design-dna/blob/main/LICENSE)
@@ -21,7 +21,7 @@ You get a settings page that works. It's "clean." And it looks nothing like the 
 
 So you spend your time explaining what's off. Fixing it. Explaining again. Watching the same mistakes return next feature. You become a full-time design cop.
 
-DESIGN DNA lets you encode your taste once -- your preferences, your principles, your opinion about how things should look and feel -- into design DNA. From that point on, every line of AI-generated UI code comes out looking like it was built by someone who gets it.
+Design DNA lets you encode your taste once -- your preferences, your principles, your opinion about how things should look and feel -- into design DNA. From that point on, every line of AI-generated UI code comes out looking like it was built by someone who gets it.
 
 ---
 
@@ -33,7 +33,7 @@ DESIGN DNA lets you encode your taste once -- your preferences, your principles,
 /dc:init
 ```
 
-DESIGN DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
+Design DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
 
 It also generates lookbook pages: golden reference implementations that show the DNA in action, and serve as guidance for Claude. 
 
@@ -66,7 +66,7 @@ Judgment:
 /dc:update the buttons feel too chunky
 ```
 
-Describe what's off in your own words. DESIGN DNA translates that into precise DNA changes.
+Describe what's off in your own words. Design DNA translates that into precise DNA changes.
 
 Works with plain language, Figma files, URLs, screenshots -- whatever you have.
 
@@ -91,7 +91,7 @@ That's it. Four commands.
   lookbook/           # Golden reference implementations
 ```
 
-DESIGN DNA also updates your `CLAUDE.md` so Claude reads the DNA before any UI work -- automatically.
+Design DNA also updates your `CLAUDE.md` so Claude reads the DNA before any UI work -- automatically.
 
 ---
 

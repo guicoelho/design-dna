@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — Design DNA</title>
+  <!-- DNA: Geist font family (Visual Language > Typography) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css">
+  <style>
+    /* DNA: Global reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* DNA: Dark page, Geist font, antialiased (Visual Language) */
+    body {
+      font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #e0e0e0;
+      background: #0a0a0a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* DNA: Fixed nav (Component Specs > Navigation) */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 24px 32px;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.15s;
+      margin-left: 24px;
+    }
+
+    nav a:hover { color: #fff; }
+
+    /* DNA: Centered column (Patterns > Page Layout) */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* DNA: 72px section spacing (Visual Language > Density & Spacing) */
+    section { margin-bottom: 72px; }
+
+    /* DNA: Typography scale — hierarchy through color, not weight */
+    /* (Visual Language > Typography) */
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #999;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: #999;
+      margin-bottom: 32px;
+    }
+
+    /* DNA: Code blocks (Component Specs > Code Block) */
+    pre {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    code {
+      font-family: "Geist Mono", "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+      font-size: 0.875rem;
+      color: #e0e0e0;
+    }
+
+    /* DNA: Inline code — subtle background, no border */
+    p code {
+      background: #141414;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+    }
+
+    /* DNA: Output blocks (Component Specs > Code Block > Output) */
+    pre.output {
+      background: #0d0d0d;
+      border-color: #1a1a1a;
+      font-size: 0.8rem;
+    }
+
+    pre.output code { color: #777; }
+
+    /* DNA: Step pattern (Component Specs > Section > Step) */
+    .step { margin-bottom: 40px; }
+    .step p { color: #777; }
+
+    /* DNA: Copy button — hover reveal (Component Specs > Code Block > Copy Button) */
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #222;
+      border: 1px solid #333;
+      color: #888;
+      font-size: 0.75rem;
+      font-family: inherit;
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s;
+    }
+
+    pre:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { color: #fff; }
+
+    /* DNA: Embossed button — gradient bg, double border, heavier font */
+    /* (Component Specs > Buttons) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      background: linear-gradient(to bottom, #2a2a2a, #222);
+      border: 1px solid #1a1a1a;
+      box-shadow: inset 0 1px 0 #3a3a3a;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to bottom, #333, #2a2a2a);
+      color: #fff;
+    }
+
+    .btn:active {
+      background: linear-gradient(to bottom, #1e1e1e, #252525);
+      box-shadow: inset 0 1px 0 #2a2a2a;
+    }
+
+    /* DNA: Ordered list styling for docs */
+    ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      color: #999;
+    }
+
+    ol li {
+      margin-bottom: 8px;
+      color: #999;
+    }
+
+    ol li code {
+      font-size: 0.8125rem;
+    }
+
+    /* DNA: Table for reference — minimal borders */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      padding: 8px 12px;
+      border-bottom: 1px solid #222;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      font-size: 0.875rem;
+      color: #999;
+      padding: 8px 12px;
+      border-bottom: 1px solid #141414;
+    }
+
+    td code {
+      font-size: 0.8125rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="https://github.com/guicoelho/design-dna">GitHub</a>
+  </nav>
+
+  <main>
+    <!-- DNA: Hero pattern — h1 + subtitle (Patterns > Content Hierarchy) -->
+    <section>
+      <h1>Getting Started</h1>
+      <p class="subtitle">Install Design DNA and encode your taste in under five minutes.</p>
+    </section>
+
+    <!-- DNA: Content hierarchy: heading -> prose -> code (Patterns > Content Hierarchy) -->
+    <section>
+      <h2>Installation</h2>
+      <p>Design DNA installs as slash commands in your Claude Code project. Run the installer and choose your scope.</p>
+      <pre><code>npx design-dna</code></pre>
+      <p>You'll be asked to choose between local (this project only) and global (all projects) installation.</p>
+
+      <pre class="output"><code>  DESIGN DNA
+  Design system enforcement for AI-assisted development
+
+  Install scope:
+
+  1) Local (this project only — ./.claude/commands/)
+  2) Global (all projects — ~/.claude/commands/)
+
+  > 1
+
+  Installed 4 commands to .claude/commands/dc
+
+  Next steps:
+  1. Restart Claude Code to load the new commands
+  2. Run /dc:init to capture your design DNA</code></pre>
+    </section>
+
+    <section>
+      <h2>Commands</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>What it does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/dc:init</code></td>
+            <td>Scans your codebase, asks design questions, generates your DNA</td>
+          </tr>
+          <tr>
+            <td><code>/dc:check</code></td>
+            <td>Audits code against your DNA, reports drift</td>
+          </tr>
+          <tr>
+            <td><code>/dc:update</code></td>
+            <td>Updates your DNA from plain language, Figma, URLs, screenshots</td>
+          </tr>
+          <tr>
+            <td><code>/dc:help</code></td>
+            <td>Lists all commands</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>What Gets Generated</h2>
+      <p>After running <code>/dc:init</code>, your project will have a <code>.design/</code> directory:</p>
+      <pre><code>.design/
+  DNA.md              # Your taste, encoded
+  principles.md       # Design principles with examples
+  components/         # Per-component specs
+  patterns/           # Interaction and layout patterns
+  lookbook/           # Golden reference implementations</code></pre>
+      <p>Claude reads these files before generating any UI code. The DNA is the source of truth.</p>
+    </section>
+
+    <section>
+      <h2>Workflow</h2>
+
+      <div class="step">
+        <h3>1. Initialize</h3>
+        <p>Run <code>/dc:init</code> in your project. Design DNA scans your existing code, asks you high-level questions about your design vision, and generates the DNA files.</p>
+      </div>
+
+      <div class="step">
+        <h3>2. Review</h3>
+        <p>Open <code>.design/DNA.md</code> and read it. This is the seed for all future design work. If something is wrong in the seed, everything that grows from it will be wrong too.</p>
+      </div>
+
+      <div class="step">
+        <h3>3. Build</h3>
+        <p>Write UI code with Claude as normal. Claude will read the DNA before generating any UI, ensuring consistency with your design system.</p>
+      </div>
+
+      <div class="step">
+        <h3>4. Check</h3>
+        <p>Run <code>/dc:check</code> periodically to catch drift. Fix mechanical issues automatically. Review judgment calls yourself.</p>
+      </div>
+
+      <div class="step">
+        <h3>5. Evolve</h3>
+        <p>When your taste changes, run <code>/dc:update</code> with a description of what's off. The DNA evolves with you.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- DNA: Copy button script (Patterns > Interaction > Copy to Clipboard) -->
+  <script>
+    document.querySelectorAll('pre').forEach(function(pre) {
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied';
+          setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        });
+      });
+      pre.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
