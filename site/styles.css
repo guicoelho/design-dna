@@ -19,9 +19,54 @@ body {
 nav {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
-  padding: 24px 32px;
+  padding: 24px 24px;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-helix {
+  display: block;
+  width: 44px;
+  height: 21px;
+  background: linear-gradient(
+    105deg,
+    #2a2a2e 0%,
+    #3d3d42 16%,
+    #555558 30%,
+    #8a7560 40%,
+    #d4a870 44%,
+    #fff8f0 48%,
+    #ffffff 50%,
+    #f0f4ff 52%,
+    #70a0d4 56%,
+    #607088 60%,
+    #555558 70%,
+    #3d3d42 84%,
+    #2a2a2e 100%
+  );
+  background-size: 400% 100%;
+  background-position: 100% center;
+  -webkit-mask-image: url(/helix.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url(/helix.svg);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transition: background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover .logo-helix {
+  background-position: -30% center;
 }
 
 .github-btn {
