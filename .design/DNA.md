@@ -206,7 +206,7 @@ The primary model is linear scroll. The section nav provides orientation without
 - Padding-right: 40px (gap from content)
 - **Links**: #444 default, #999 on hover and active. No underline. 1rem. 0.15s color transition.
 - **Marker** (`*`): Monospace asterisk, 12px wide, transparent by default. On active section: #ff670d (orange accent).
-- **Active tracking**: IntersectionObserver with `rootMargin: '-40% 0px -40% 0px'` determines the current section.
+- **Active tracking**: Scroll listener checks each section's position against 40% of viewport height. The last section whose top has crossed above that point is active. During click-navigation, tracking is suppressed for 1s to prevent scroll-through interference.
 - **Gap**: 12px between nav items
 - **Responsive**: Hidden below 960px via `display: none`. Page falls back to single-column block layout.
 - **Labels**: Short, lowercase section names ("The problem", "How it works", "Output", "Get started"). The hero section has no nav entry -- the nav begins at the first content section.
