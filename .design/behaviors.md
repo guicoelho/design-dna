@@ -12,11 +12,11 @@ All hover effects are immediate (no delay). Every interactive element has a hove
 
 | Element | Default | Hover | What Changes |
 |---------|---------|-------|-------------|
-| Links | #666 | #fff | Color |
-| Section nav links | #444 | #999 | Color |
-| Buttons | gradient(#2a2a2a, #222), text #e0e0e0 | gradient(#333, #2a2a2a), text #fff | Background gradient + color |
+| Links | #6d6863 | #fff | Color |
+| Section nav links | #4a4541 | #a09b96 | Color |
+| Buttons | gradient(#2e2a27, #272320), text #e7e4e1 | gradient(#38332f, #2e2a27), text #fff | Background gradient + color |
 | Copy button | opacity 0 | opacity 1 | Opacity (parent hover reveals) |
-| Copy button text | #888 | #fff | Color (button's own hover) |
+| Copy button text | #8f8a85 | #fff | Color (button's own hover) |
 
 Non-interactive elements never have hover effects. No cursor changes beyond the default `pointer` on links and buttons.
 
@@ -24,7 +24,7 @@ Non-interactive elements never have hover effects. No cursor changes beyond the 
 
 | Element | Feedback |
 |---------|----------|
-| Button | Active state: gradient inverts (#1e1e1e -> #252525), inner highlight dims (#2a2a2a). Simulates physical press-down. |
+| Button | Active state: gradient inverts (#211e1b -> #292623), inner highlight dims (#2e2a27). Simulates physical press-down. |
 | Copy button | Text swaps "Copy" -> "Copied" for 1500ms. No visual animation beyond the text change. |
 | Links | No click feedback. Browser default. |
 | Section nav links | Smooth scroll to target section. No visual feedback beyond the scroll and active marker update. |
@@ -98,7 +98,7 @@ If reduced motion support is added: set all `transition-duration: 0.01s` to make
 
 Not applicable. This is a static site. All content is present on initial render. No async data loading, no API calls, no progressive loading.
 
-If loading patterns are needed in the future: prefer skeleton screens over spinners, matching the dark surface color (#141414) with subtle pulse animation.
+If loading patterns are needed in the future: prefer skeleton screens over spinners, matching the dark surface color (#191513) with subtle pulse animation.
 
 ### Errors
 

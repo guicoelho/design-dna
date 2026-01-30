@@ -43,18 +43,19 @@ The hero section has no nav entry -- navigation begins at the first content sect
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #444;
-  font-size: 1rem;
+  color: #4a4541;
+  font-family: "Geist Mono", "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.9375rem;
   white-space: nowrap;
   transition: color 0.15s;
 }
 
 .section-nav a:hover {
-  color: #999;
+  color: #a09b96;
 }
 
 .section-nav a.active {
-  color: #999;
+  color: #a09b96;
 }
 
 .section-nav .marker {
@@ -74,9 +75,9 @@ The hero section has no nav entry -- navigation begins at the first content sect
 
 | State | Link color | Marker color |
 |-------|-----------|-------------|
-| Default | #444 | transparent |
-| Hover | #999 | transparent |
-| Active | #999 | #ff670d |
+| Default | #4a4541 | transparent |
+| Hover | #a09b96 | transparent |
+| Active | #a09b96 | #ff670d |
 
 ## Active Tracking
 

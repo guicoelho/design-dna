@@ -10,11 +10,11 @@ All hover transitions use `transition: color 0.15s` or `transition: opacity 0.15
 
 | Element | Default | Hover | Transition |
 |---------|---------|-------|------------|
-| Links | color #666 | color #fff | color 0.15s |
-| Section nav links | color #444 | color #999 | color 0.15s |
-| Buttons | gradient #2a2a2a->#222 | gradient #333->#2a2a2a | background 0.15s |
+| Links | color #6d6863 | color #fff | color 0.15s |
+| Section nav links | color #4a4541 | color #a09b96 | color 0.15s |
+| Buttons | gradient #2e2a27->#272320 | gradient #38332f->#2e2a27 | background 0.15s |
 | Copy button | opacity 0 | opacity 1 | opacity 0.15s |
-| Copy button text | color #888 | color #fff | color 0.15s |
+| Copy button text | color #8f8a85 | color #fff | color 0.15s |
 
 ## Copy to Clipboard
 

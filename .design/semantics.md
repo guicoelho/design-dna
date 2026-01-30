@@ -31,33 +31,33 @@ Not applicable for this product (static marketing site with no forms, no user ac
 #### Backgrounds
 | Role | Variable | Value |
 |------|-------|-------|
-| Page | `--bg-page` | #0a0a0a |
-| Surface (raised) | `--bg-surface` | #141414 |
-| Surface (recessed) | `--bg-surface-dim` | #0d0d0d |
-| Interactive | `--bg-interactive` | #222 |
+| Page | `--bg-page` | #12100e |
+| Surface (raised) | `--bg-surface` | #191513 |
+| Surface (recessed) | `--bg-surface-dim` | #151210 |
+| Interactive | `--bg-interactive` | #272320 |
 
 #### Borders
 | Role | Variable | Value |
 |------|-------|-------|
-| Default | `--border-default` | #222 |
-| Dim | `--border-dim` | #1a1a1a |
-| Interactive | `--border-interactive` | #333 |
+| Default | `--border-default` | #272320 |
+| Dim | `--border-dim` | #1e1a18 |
+| Interactive | `--border-interactive` | #38332f |
 
 #### Text
 | Role | Variable | Value | Usage |
 |------|-------|-------|-------|
 | Primary | `--text-primary` | #fff | Headings, important labels, hover states |
-| Body | `--text-body` | #999 | Body text, descriptions |
-| Dim | `--text-dim` | #777 | Secondary text, step descriptions, output code |
-| Muted | `--text-muted` | #666 | Links (default), tertiary text |
-| Code | `--text-code` | #e0e0e0 | Code text, button text |
-| Disabled | -- | #555 | Disabled elements |
+| Body | `--text-body` | #a09b96 | Body text, descriptions |
+| Dim | `--text-dim` | #7e7974 | Secondary text, step descriptions, output code |
+| Muted | `--text-muted` | #6d6863 | Links (default), tertiary text |
+| Code | `--text-code` | #e7e4e1 | Code text, button text |
+| Disabled | -- | #5c5752 | Disabled elements |
 
 ### Interactive Colors
 
 | Role | Variable | Value |
 |------|-------|-------|
-| Link default | -- | #666 |
+| Link default | -- | #6d6863 |
 | Link hover | -- | #fff |
 | Focus | -- | No visible focus ring (color-shift only) |
 | Selection | -- | Browser default |
@@ -77,35 +77,35 @@ Not applicable -- dark mode only.
 |-------|---------|------|--------|-------|-------|
 | 1 | h1 | 1.75rem | 500 | #fff | Page title (one per page) |
 | 2 | h2 | 1.125rem | 500 | #fff | Section headings |
-| 3 | h3 | 1rem | 500 | #fff | Sub-section headings (steps) |
+| 3 | h3 | 0.9375rem | 500 | #fff | Sub-section headings (steps) |
 
 Only 3 levels used. h4-h6 are not part of the system. If content requires deeper nesting, restructure instead of adding heading levels.
 
-CTA exception: the CTA section's h2 uses `color: #999` and `font-weight: 500` -- deliberately quieter than standard h2.
+CTA exception: the CTA section's h2 uses `color: #a09b96` and `font-weight: 500` -- deliberately quieter than standard h2.
 
 ### Body Variants
 
 | Variant | Size | Weight | Color | Line Height | Usage |
 |---------|------|--------|-------|-------------|-------|
-| Default | 1rem | 400 | #999 | 1.6 | Body paragraphs |
-| Subtitle | 1.125rem | 400 | #999 | 1.6 | Hero subtitle |
-| Dim | 1rem | 400 | #777 | 1.6 | Step descriptions, secondary prose |
+| Default | 0.9375rem | 400 | #a09b96 | 1.6 | Body paragraphs |
+| Subtitle | 1.125rem | 400 | #a09b96 | 1.6 | Hero subtitle |
+| Dim | 0.9375rem | 400 | #7e7974 | 1.6 | Step descriptions, secondary prose |
 
 ### UI Text
 
 | Type | Size | Weight | Color | Usage |
 |------|------|--------|-------|-------|
-| Button label | 0.875rem | 600 | #e0e0e0 | Button text |
-| Link | 0.875rem | 400 | #666 | Navigation links, CTA links |
-| Copy button | 0.75rem | 400 | #888 | Copy/Copied label |
-| Nav label | 1rem | 400 | #444 | Section nav entries |
+| Button label | 0.875rem | 600 | #e7e4e1 | Button text |
+| Link | 0.875rem | 400 | #6d6863 | Navigation links, CTA links |
+| Copy button | 0.75rem | 400 | #8f8a85 | Copy/Copied label |
+| Nav label | 0.9375rem | 400 | #4a4541 | Section nav entries |
 
 ### Code Usage
 
 | Context | Font | Size | Color | Usage |
 |---------|------|------|-------|-------|
-| Command code | Geist Mono | 0.875rem | #e0e0e0 | Commands the user types |
-| Output code | Geist Mono | 0.8rem | #777 | What the user sees after a command |
+| Command code | Geist Mono | 0.875rem | #e7e4e1 | Commands the user types |
+| Output code | Geist Mono | 0.8rem | #7e7974 | What the user sees after a command |
 | Inline code | Not used | -- | -- | This site does not use inline `<code>` in prose |
 
 ---
@@ -163,22 +163,22 @@ Elevation is expressed through background color, not shadow.
 
 | Level | Name | Background | Meaning |
 |-------|------|------------|---------|
-| -1 | Recessed | #0d0d0d | Content that is subordinate (output blocks) |
-| 0 | Page | #0a0a0a | The base layer -- the page itself |
-| 1 | Surface | #141414 | Content containers (code blocks) |
-| 2 | Interactive | #222 | Interactive elements (buttons, copy button) |
-| 3 | Highlight | #333 | Interactive element borders, hover states |
+| -1 | Recessed | #151210 | Content that is subordinate (output blocks) |
+| 0 | Page | #12100e | The base layer -- the page itself |
+| 1 | Surface | #191513 | Content containers (code blocks) |
+| 2 | Interactive | #272320 | Interactive elements (buttons, copy button) |
+| 3 | Highlight | #38332f | Interactive element borders, hover states |
 
 ### Component-to-Elevation Mapping
 
 | Component | Elevation Level | Background |
 |-----------|----------------|------------|
-| Page | 0 | #0a0a0a |
-| Output code block | -1 | #0d0d0d |
-| Command code block | 1 | #141414 |
-| Button | 2 (gradient) | #2a2a2a -> #222 |
-| Copy button | 2 | #222 |
-| Button border | 1 | #1a1a1a |
-| Code block border | 2 | #222 |
+| Page | 0 | #12100e |
+| Output code block | -1 | #151210 |
+| Command code block | 1 | #191513 |
+| Button | 2 (gradient) | #2e2a27 -> #272320 |
+| Copy button | 2 | #272320 |
+| Button border | 1 | #1e1a18 |
+| Code block border | 2 | #272320 |
 | Section nav | 0 (transparent) | inherits page |
-| Dividers | between 0 and 1 | #1a1a1a |
+| Dividers | between 0 and 1 | #1e1a18 |

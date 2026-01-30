@@ -11,8 +11,8 @@ For showing commands the user types.
 
 ```css
 pre {
-  background: #141414;
-  border: 1px solid #222;
+  background: #191513;
+  border: 1px solid #272320;
   border-radius: 8px;
   padding: 16px 20px;
   overflow-x: auto;
@@ -23,7 +23,7 @@ pre {
 code {
   font-family: "Geist Mono", "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
   font-size: 0.875rem;
-  color: #e0e0e0;
+  color: #e7e4e1;
 }
 ```
 
@@ -32,13 +32,13 @@ For showing what the user sees after running a command. Visually recessed -- dar
 
 ```css
 pre.output {
-  background: #0d0d0d;
-  border-color: #1a1a1a;
+  background: #151210;
+  border-color: #1e1a18;
   font-size: 0.8rem;
 }
 
 pre.output code {
-  color: #777;
+  color: #7e7974;
 }
 ```
 
@@ -53,9 +53,9 @@ Every code block has a copy-to-clipboard button. It's hidden by default and reve
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #222;
-  border: 1px solid #333;
-  color: #888;
+  background: #272320;
+  border: 1px solid #38332f;
+  color: #8f8a85;
   font-size: 0.75rem;
   font-family: inherit; /* Uses body font, not mono */
   padding: 2px 8px;

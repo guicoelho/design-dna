@@ -81,7 +81,7 @@ Compile everything you found into an internal summary. Do not show this raw to t
 ## Step 2: Create Directory Structure
 
 ```
-mkdir -p .design/components .design/patterns .design/lookbook
+mkdir -p .design/components .design/patterns
 ```
 
 ---
@@ -219,7 +219,6 @@ Generate files in this order (dependencies flow downward):
 6. `patterns/*.md` -- pattern specs (references components, primitives, semantics)
 7. `behaviors.md` -- interaction rules (references primitives for durations, components for specifics)
 8. `DNA.md` -- the index (references all of the above)
-9. Lookbook files -- reference implementations (implement all of the above)
 
 ### `.design/primitives.md`
 
@@ -579,9 +578,6 @@ This file is the index for the `.design/` directory. Read the linked files for i
     [list actual files]
   patterns/           <- Recurring layout and interaction patterns
     [list actual files]
-  lookbook/           <- Reference implementations
-    [list actual files]
-
 ---
 
 ## 1. Product Mental Model
@@ -662,16 +658,7 @@ Recurring layout and interaction patterns. **Read the linked files for full spec
 
 ---
 
-## 9. Lookbook
-
-Reference implementations. Use these as ground truth.
-
-- **[Page](lookbook/name.ext)** -- [One-line description]
-- ...
-
----
-
-## 10. Signature Components
+## 9. Signature Components
 
 [Detailed descriptions of non-standard, product-specific UI elements. Inline here because these are narrative-heavy and unique.]
 
@@ -679,7 +666,7 @@ If no signature components yet, omit this section.
 
 ---
 
-## 11. Tech Stack & Libraries
+## 10. Tech Stack & Libraries
 
 ### Required Libraries
 [Component library, icon library, etc. with exact package names.]
@@ -692,7 +679,7 @@ If no signature components yet, omit this section.
 
 ---
 
-## 12. References
+## 11. References
 
 Products or interfaces that inform this product's direction.
 
@@ -720,32 +707,13 @@ Never leave a section empty. "Not applicable" with explanation is a valid value 
 
 ---
 
-## Step 5: Generate Lookbooks
-
-Immediately generate lookbook pages relevant to this product. Do not ask -- just do it.
-
-1. Detect what kind of product this is from the conversation (data analytics, SaaS, e-commerce, dev tool, etc.)
-2. Generate 3-5 lookbook pages that are relevant. Examples:
-   - Data analytics product -> dashboard with charts, data table, filters panel
-   - SaaS product -> settings page, onboarding flow, empty states
-   - Dev tool -> configuration page, logs view, API key management
-   - E-commerce -> product listing, cart, order detail
-3. Each page must:
-   - Use the exact tech stack, component libraries, and styling approach
-   - Follow every DNA rule with inline comments citing the spec
-   - Use realistic content (real names, plausible data)
-   - Show multiple states where relevant
-4. Write to `.design/lookbook/<name>.<ext>`
-
----
-
-## Step 6: Generate Compressed DNA Reference and Update CLAUDE.md
+## Step 5: Generate Compressed DNA Reference and Update CLAUDE.md
 
 This is the most critical step. Instead of telling Claude to go read `.design/` files (which requires retrieval decisions that fail ~50% of the time), we embed a compressed design system reference **directly in CLAUDE.md** so it's passively available in every context window.
 
 Read the existing `CLAUDE.md` first. If it exists, preserve any non-DNA content. If not, create it.
 
-### 6a. Generate the Compressed Block
+### 5a. Generate the Compressed Block
 
 Read all generated `.design/` files and compress them into a single reference block. The block goes between `<!-- dna:begin -->` and `<!-- dna:end -->` markers.
 
@@ -826,14 +794,13 @@ No [thing] | No [thing] | No [thing] | ...
 ### Deep Reference
 Full component CSS/states: .design/components/*.md
 Full pattern specs: .design/patterns/*.md
-Lookbook implementations: .design/lookbook/
 Detailed principles + examples: .design/principles.md
 Detailed behaviors + states: .design/behaviors.md
 Product context and mental model: .design/DNA.md
 <!-- dna:end -->
 ```
 
-### 6b. Write to CLAUDE.md
+### 5b. Write to CLAUDE.md
 
 The final CLAUDE.md structure:
 
@@ -859,14 +826,13 @@ Run `/dna:check` after making UI changes to verify compliance.
 
 ---
 
-## Step 7: Wrap Up
+## Step 6: Wrap Up
 
 Present the user with:
 
 1. A summary of what was generated (list the files)
 2. An invitation to review:
    - "Review `.design/DNA.md` -- this is the seed for all future design work. If something is wrong in the seed, everything that grows from it will be wrong too."
-   - "Look at the lookbook pages in `.design/lookbook/`. Tweak them until they're perfect -- these are the golden references Claude will use."
    - If any `<!-- default: -->` markers were used: "I've marked assumed values with `<!-- default -->` comments in the taxonomy files. Search for these and review -- they're reasonable defaults, but your product may need something different."
 3. How to give feedback:
    - "If anything doesn't look right, just tell me what's off. You don't need to speak in specs -- describe it naturally and I'll update the DNA. Run `/dna:update` anytime."

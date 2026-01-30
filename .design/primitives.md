@@ -17,30 +17,30 @@ Single accent hue. Everything else is grayscale.
 
 ### Neutral Scale
 
-Hand-picked grayscale. Not algorithmically generated -- each step is chosen for a specific role.
+Hand-picked warm grayscale. Not algorithmically generated -- each step is chosen for a specific role.
 
 | Step | Value | Role |
 |------|-------|------|
-| black-1 | #0a0a0a | Page background |
-| black-2 | #0d0d0d | Recessed surfaces (output code blocks) |
-| black-3 | #141414 | Raised surfaces (code blocks, cards) |
-| black-4 | #1a1a1a | Subtle borders, dim dividers |
-| black-5 | #222 | Default borders, interactive backgrounds |
-| black-6 | #2a2a2a | Button gradient dark end |
-| black-7 | #333 | Interactive borders, button gradient light end (hover) |
-| black-8 | #3a3a3a | Button inner highlight (inset shadow) |
-| gray-1 | #444 | Inactive nav links |
-| gray-2 | #555 | Disabled text |
-| gray-3 | #666 | Muted text, default link color |
-| gray-4 | #777 | Dim text, step descriptions, output text |
-| gray-5 | #888 | Copy button text |
-| gray-6 | #999 | Body text, secondary text |
-| light-1 | #e0e0e0 | Code text, button text |
+| black-1 | #12100e | Page background |
+| black-2 | #151210 | Recessed surfaces (output code blocks) |
+| black-3 | #191513 | Raised surfaces (code blocks, cards) |
+| black-4 | #1e1a18 | Subtle borders, dim dividers |
+| black-5 | #272320 | Default borders, interactive backgrounds |
+| black-6 | #2e2a27 | Button gradient dark end |
+| black-7 | #38332f | Interactive borders, button gradient light end (hover) |
+| black-8 | #3f3a36 | Button inner highlight (inset shadow) |
+| gray-1 | #4a4541 | Inactive nav links |
+| gray-2 | #5c5752 | Disabled text |
+| gray-3 | #6d6863 | Muted text, default link color |
+| gray-4 | #7e7974 | Dim text, step descriptions, output text |
+| gray-5 | #8f8a85 | Copy button text |
+| gray-6 | #a09b96 | Body text, secondary text |
+| light-1 | #e7e4e1 | Code text, button text |
 | white | #fff | Primary text, headings, hover text |
 
 ### Generation Method
 
-Hand-picked. Each value is chosen for a specific use case in the neutral-heavy dark palette. Not derived from a mathematical scale.
+Hand-picked warm tones. Each value is chosen for a specific use case in the warm dark palette. Not derived from a mathematical scale.
 
 ---
 
@@ -50,10 +50,9 @@ Hand-picked. Each value is chosen for a specific use case in the neutral-heavy d
 
 | Role | Family | Fallback Stack |
 |------|--------|----------------|
-| Body | Geist | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif |
-| Mono | Geist Mono | "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace |
+| All text | Geist Mono | "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace |
 
-No secondary or display font. Geist serves all non-code text.
+Single font family. Everything is monospace.
 
 ### Font Weights
 
@@ -67,7 +66,7 @@ Never use bold (700) or light (300).
 
 ### Base Size
 
-`1rem` (16px). Set on `html`. No scaling via viewport units.
+`1rem` (16px) root. Body text uses `0.9375rem` (15px). No scaling via viewport units.
 
 ### Type Scale
 
@@ -77,7 +76,7 @@ Custom steps, not ratio-based.
 |------|------|---------------|
 | display | 1.75rem | 28px |
 | section | 1.125rem | 18px |
-| body | 1rem | 16px |
+| body | 0.9375rem | 15px |
 | code | 0.875rem | 14px |
 | output | 0.8rem | 12.8px |
 | small | 0.75rem | 12px |
@@ -181,8 +180,8 @@ Sharp and technical. Radius is functional (softening code block edges), never de
 
 | Name | Value | Usage |
 |------|-------|-------|
-| button-highlight | inset 0 1px 0 #3a3a3a | Button inner highlight (embossed effect) |
-| button-highlight-pressed | inset 0 1px 0 #2a2a2a | Button pressed state (dimmed highlight) |
+| button-highlight | inset 0 1px 0 #3f3a36 | Button inner highlight (embossed effect) |
+| button-highlight-pressed | inset 0 1px 0 #2e2a27 | Button pressed state (dimmed highlight) |
 
 ### Number of Levels
 
@@ -191,12 +190,12 @@ No traditional elevation levels. There are no drop shadows on any element.
 ### Usage Philosophy
 
 Elevation is communicated through **background color steps**, not shadows:
-- Level 0 (page): #0a0a0a
-- Level 1 (recessed): #0d0d0d
-- Level 2 (raised surface): #141414
-- Level 3 (interactive): #222
+- Level 0 (page): #12100e
+- Level 1 (recessed): #151210
+- Level 2 (raised surface): #191513
+- Level 3 (interactive): #272320
 
-Borders (`1px solid #222` or `#1a1a1a`) are the primary separation mechanism, not shadow. The only `box-shadow` usage is the button emboss -- a structural depth cue, not an elevation indicator.
+Borders (`1px solid #272320` or `#1e1a18`) are the primary separation mechanism, not shadow. The only `box-shadow` usage is the button emboss -- a structural depth cue, not an elevation indicator.
 
 ---
 

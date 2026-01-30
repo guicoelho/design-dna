@@ -3,9 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/design-dna.svg)](https://www.npmjs.com/package/design-dna)
 [![license](https://img.shields.io/npm/l/design-dna.svg)](https://github.com/guicoelho/design-dna/blob/main/LICENSE)
 
-**Encode your design taste & principles into "design DNA". Every piece of AI-generated UI looks like your product and vision**
-
----
+**Build your project's Design DNA, one feedback at a time.**
 
 ```
 npx design-dna
@@ -13,39 +11,45 @@ npx design-dna
 
 ---
 
-## The Problem
+## Before
 
-AI builds UI fast. But it doesn't know your taste and design vision.
+You do the same tweaks every time. AI doesn't remember what it ate for lunch.
 
-You get a settings page that works. It's "clean." And it looks nothing like the rest of your product. Wrong spacing, wrong hierarchy, wrong component patterns, wrong vibe.
+## Now
 
-So you spend your time explaining what's off. Fixing it. Explaining again. Watching the same mistakes return next feature. You become a full-time design cop.
-
-Design DNA lets you encode your taste once -- your preferences, your principles, your opinion about how things should look and feel -- into design DNA. From that point on, every line of AI-generated UI code comes out looking like it was built by someone who gets it.
+Every piece of feedback gets encoded into the design DNA, and will naturally be part of anything you build next.
 
 ---
 
-## How It Works
+## Usage
 
-### 1. Init
+### Init
 
 ```
 /dna:init
 ```
 
-Design DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
+Start your DNA.
 
-It also generates lookbook pages -- golden reference implementations that show the DNA in action -- and embeds a compressed design system reference directly into your `CLAUDE.md` so Claude has passive context for every UI task.
+### Update
 
-**Output:** `.design/` taxonomy, lookbook pages, compressed reference in `CLAUDE.md`.
+```
+/dna:update the buttons feel too chunky
+```
 
-### 2. Check
+Improve it as you go.
+
+---
+
+## Reference
+
+### Check
 
 ```
 /dna:check
 ```
 
-Audits code against your DNA. Reports exactly what drifted, where, and why it matters.
+Audits code against your DNA. Reports what drifted, where, and why.
 
 ```
 DRIFT DETECTED in Settings.tsx
@@ -60,31 +64,19 @@ Judgment:
 3 issues · 2 auto-fixable · 1 needs review
 ```
 
-### 3. Update
-
-```
-/dna:update the buttons feel too chunky
-```
-
-Describe what's off in your own words. Design DNA translates that into precise DNA changes.
-
-Works with plain language, Figma files, URLs, screenshots -- whatever you have.
-
-### 4. Help
+### Help
 
 ```
 /dna:help
 ```
 
-That's it. Four commands.
+Command reference.
 
----
-
-## What Gets Generated
+### What Gets Generated
 
 ```
 .design/
-  DNA.md              # Product context and mental model -- the index
+  DNA.md              # Product context and mental model
   principles.md       # Design principles with examples
   primitives.md       # Raw design values (colors, type, spacing, shape, motion)
   scales.md           # Graduated value systems
@@ -92,20 +84,9 @@ That's it. Four commands.
   behaviors.md        # Interaction and motion specs
   components/         # Per-component specs (variants, states, values)
   patterns/           # Layout and content patterns
-  lookbook/           # Golden reference implementations
 ```
 
-Design DNA also embeds a compressed design system reference directly into your `CLAUDE.md` -- Claude has passive context for every UI task without reading files. The embedded reference stays in sync: `/dna:check` detects staleness, `/dna:update` regenerates it automatically.
-
----
-
-## Setup
-
-```
-npx design-dna
-```
-
-The installer copies slash commands into your project. Then run `/dna:init` to encode your taste.
+Your `CLAUDE.md` gets an embedded compressed reference -- passive context without reading files. Stays in sync automatically.
 
 ---
 

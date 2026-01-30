@@ -8,7 +8,7 @@ Links on the Design DNA site follow a single pattern: gray default, white hover,
 
 ```css
 a {
-  color: #666;
+  color: #6d6863;
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.15s;
@@ -37,7 +37,7 @@ Displayed in a horizontal row. Same color behavior, arranged with flex + gap.
 }
 
 .links a {
-  color: #666;
+  color: #6d6863;
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.15s;
@@ -53,7 +53,7 @@ Displayed in a horizontal row. Same color behavior, arranged with flex + gap.
 ## Usage Rules
 
 - Links never underline, not on default, not on hover
-- Links are always #666 -> #fff. No other color transitions.
+- Links are always #6d6863 -> #fff. No other color transitions.
 - No visited state styling
 - No blue links, ever
 - If a link needs more prominence, it becomes a code block CTA (`pre > code` with the command), not a styled button

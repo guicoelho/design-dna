@@ -139,20 +139,9 @@ DNA Updated:
 Found N files using old values -- review these to ensure they match the updated DNA.
 ```
 
-### Step 7: Update Lookbooks (if relevant)
+### Step 7: Regenerate Compressed DNA Reference
 
-If the changes affect visual output and lookbook pages exist in `.design/lookbook/`:
-
-1. Glob for `.design/lookbook/*` and read each file.
-2. Identify which lookbook pages use the changed values (old spacing, colors, components, patterns, etc.).
-3. Edit each affected lookbook page to reflect the updated DNA. Preserve the page's structure and realistic content -- only update the values that changed.
-4. Report which lookbook pages were updated.
-
-If no lookbook pages exist, skip this step silently.
-
-### Step 8: Regenerate Compressed DNA Reference
-
-After all `.design/` file changes and lookbook updates are applied, regenerate the compressed DNA reference block in CLAUDE.md to keep it in sync.
+After all `.design/` file changes are applied, regenerate the compressed DNA reference block in CLAUDE.md to keep it in sync.
 
 1. Re-read all `.design/` files (not just the ones that changed -- cross-references between files mean any section could be affected).
 2. Read the current `CLAUDE.md`.

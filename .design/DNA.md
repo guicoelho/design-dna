@@ -1,6 +1,6 @@
 # Design DNA: Design DNA
 
-> A dark, minimal, technically precise marketing site for a developer tool -- monochrome with orange accent, crafted details, zero decoration.
+> A dark, minimal, technically precise marketing site for a developer tool -- warm monochrome with orange accent, terminal UI vibe, crafted details, zero decoration.
 
 This file is the index for the `.design/` directory. It frames the design DNA at a high level and points to detailed specs elsewhere. **Read the linked files for implementation details.**
 
@@ -24,11 +24,6 @@ This file is the index for the `.design/` directory. It frames the design DNA at
     page-layout.md
     content-hierarchy.md
     interaction.md
-  lookbook/           <- Reference implementations
-    landing-page.html
-    landing-page.css
-    docs-page.html
-    changelog-page.html
 ```
 
 ---
@@ -60,7 +55,7 @@ The primary model is linear scroll. The section nav provides orientation without
 5 principles govern every decision. Ordered by priority. When in doubt, these are the tiebreaker.
 
 1. **Nothing decorative** -- Every visual element serves a function. No gradients for aesthetics, no icons as decoration.
-2. **Monochrome is the palette, orange is the signal** -- Default state is grayscale. Orange marks the single most important moment.
+2. **Warm monochrome is the palette, orange is the signal** -- Default state is warm grayscale. Orange marks the single most important moment.
 3. **Density through restraint** -- Dense because nothing is unnecessary, not because things are packed tight.
 4. **The code is the product** -- Code blocks are first-class citizens, the hero images of this site.
 5. **Craft in the details** -- Hover states, transition timing, font rendering compound into trust.
@@ -71,7 +66,7 @@ The primary model is linear scroll. The section nav provides orientation without
 
 ## 3. Primitives
 
-The foundational design values that everything else references. Hand-picked dark grayscale with a single orange accent. Geist typeface family. 4px base spacing unit. Sharp, technical radii. Elevation through background color, not shadow. 0.15s universal transition.
+The foundational design values that everything else references. Hand-picked warm dark grayscale with a single orange accent. Geist Mono for everything. 4px base spacing unit. Sharp, technical radii. Elevation through background color, not shadow. 0.15s universal transition.
 
 -> Full primitive definitions: **[primitives.md](primitives.md)**
 
@@ -87,7 +82,7 @@ Single breakpoint at 960px (desktop-first). 3-column CSS grid with 640px content
 
 ## 5. Semantics
 
-Hierarchy through color contrast (#fff / #999 / #777), not size or weight. Orange reserved for a single accent moment. Elevation expressed via background color steps (#0a0a0a -> #141414 -> #222). Text, border, and surface assignments map to specific functional roles.
+Hierarchy through color contrast (#fff / #a09b96 / #7e7974), not size or weight. Orange reserved for a single accent moment. Elevation expressed via background color steps (#12100e -> #191513 -> #272320). Text, border, and surface assignments map to specific functional roles.
 
 -> Full semantic mappings: **[semantics.md](semantics.md)**
 
@@ -99,7 +94,7 @@ Detailed specs with CSS for each component. **Read the linked files for full spe
 
 - **[Button](components/button.md)** -- Embossed gradient with double-border technique, 4px radius, 0.15s transitions
 - **[Code Block](components/code-block.md)** -- Terminal-style with copy button, command and output variants
-- **[Links](components/links.md)** -- Gray (#666) to white (#fff) on hover, no underline, ever
+- **[Links](components/links.md)** -- Gray (#6d6863) to white (#fff) on hover, no underline, ever
 - **[Section](components/section.md)** -- Structural unit with 72px spacing, hero/step/CTA variants
 - **[Section Nav](components/section-nav.md)** -- Sticky left sidebar with orange asterisk active marker
 
@@ -123,24 +118,14 @@ All transitions 0.15s. No entrance animations. No spatial movement. Hover = colo
 
 ---
 
-## 9. Lookbook
-
-Reference implementations showing the DNA applied to real pages. Use these as ground truth when generating new pages or components.
-
-- **[Landing Page](lookbook/landing-page.html)** ([CSS](lookbook/landing-page.css)) -- The marketing homepage: hero, problem, how-it-works, output, CTA
-- **[Docs Page](lookbook/docs-page.html)** -- Getting started guide with install steps and command reference
-- **[Changelog Page](lookbook/changelog-page.html)** -- Version history with date-tagged entries
-
----
-
-## 10. Signature Components
+## 9. Signature Components
 
 ### Terminal-Style Code Blocks
-The code blocks are the signature element of this site. They serve as both documentation and visual identity. Unlike typical marketing sites that use screenshots or illustrations, Design DNA uses styled code blocks as its primary visual content. The dark surface (#141414) against the darker page (#0a0a0a) creates subtle depth. The copy button reveal on hover signals craft. The output variant (#0d0d0d, #777 text) distinguishes between "what you type" and "what you see" -- a terminal metaphor that resonates with the developer audience.
+The code blocks are the signature element of this site. They serve as both documentation and visual identity. Unlike typical marketing sites that use screenshots or illustrations, Design DNA uses styled code blocks as its primary visual content. The dark surface (#191513) against the darker page (#12100e) creates subtle depth. The copy button reveal on hover signals craft. The output variant (#151210, #7e7974 text) distinguishes between "what you type" and "what you see" -- a terminal metaphor that resonates with the developer audience.
 
 ---
 
-## 11. Tech Stack & Libraries
+## 10. Tech Stack & Libraries
 
 ### Required Libraries
 - **Font**: Geist and Geist Mono (loaded via `<link>` from CDN or self-hosted)
@@ -165,7 +150,7 @@ The code blocks are the signature element of this site. They serve as both docum
 
 ---
 
-## 12. References
+## 11. References
 
 Products or interfaces that inform this product's direction, and what to take from each.
 
