@@ -150,6 +150,19 @@ If the changes affect visual output and lookbook pages exist in `.design/lookboo
 
 If no lookbook pages exist, skip this step silently.
 
+### Step 8: Regenerate Compressed DNA Reference
+
+After all `.design/` file changes and lookbook updates are applied, regenerate the compressed DNA reference block in CLAUDE.md to keep it in sync.
+
+1. Re-read all `.design/` files (not just the ones that changed -- cross-references between files mean any section could be affected).
+2. Read the current `CLAUDE.md`.
+3. Find the `<!-- dna:begin -->` and `<!-- dna:end -->` markers.
+4. Regenerate the entire compressed block using the same format rules defined in `/dna:init` Step 6a.
+5. Replace the content between the markers (inclusive) with the regenerated block.
+6. Report: "Updated compressed DNA reference in CLAUDE.md"
+
+If `CLAUDE.md` does not contain `<!-- dna:begin -->` / `<!-- dna:end -->` markers, warn: "CLAUDE.md is missing the compressed DNA reference. Run `/dna:init` to set it up." Do not attempt to add the block during an update -- the full init format spec is needed to generate it correctly.
+
 ## Rules
 
 - Meet the user where they are. Accept vague feedback and make it specific.

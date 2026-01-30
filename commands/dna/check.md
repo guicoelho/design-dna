@@ -36,6 +36,27 @@ If taxonomy files are missing (primitives.md, scales.md, semantics.md, behaviors
 
 Build a mental model of the design system. Understand not just the values but the intent behind them -- the visual direction, the principles, the signature details. You need this context to evaluate judgment calls.
 
+#### Compressed Reference Staleness Check
+
+After loading the DNA files, read `CLAUDE.md` and check for `<!-- dna:begin -->` / `<!-- dna:end -->` markers. If the markers exist, spot-check these values in the compressed block against the loaded `.design/` files:
+- Accent color (from primitives.md)
+- Page background color (from primitives.md)
+- Breakpoint value (from scales.md)
+- Font family (from primitives.md)
+- Base spacing unit (from primitives.md)
+- Body text color (from semantics.md)
+- Button border-radius (from components/button.md)
+
+If any values differ, add this note at the end of the final report:
+```
+Note: Compressed DNA reference in CLAUDE.md appears stale. Run /dna:update to regenerate.
+```
+
+If `CLAUDE.md` has no `<!-- dna:begin -->` marker, add:
+```
+Note: CLAUDE.md is missing the compressed DNA reference. Run /dna:init to set it up.
+```
+
 ### Step 2: Identify Target Files
 
 **If a file path was provided:** Read that file directly.
