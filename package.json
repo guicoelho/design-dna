@@ -1,6 +1,6 @@
 {
   "name": "design-dna",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Encode your design taste into DNA. Every line of AI-generated code looks like yours.",
   "type": "commonjs",
   "bin": {
