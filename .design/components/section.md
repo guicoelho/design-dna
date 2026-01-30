@@ -21,7 +21,7 @@ No background, no border, no padding of its own. Sections are defined by their c
 ### Hero Section
 First section. Contains h1, subtitle, and the install command code block.
 - h1: 1.75rem, weight 500, #fff
-- Subtitle: 1.125rem, #999, margin-bottom 32px (extra space before the code block)
+- Subtitle: 1.125rem, #a09b96, margin-bottom 32px (extra space before the code block)
 
 ### Step Section
 Used within "How It Works." Each step is a `.step` div inside the section.
@@ -31,11 +31,11 @@ Used within "How It Works." Each step is a `.step` div inside the section.
 }
 
 .step p {
-  color: #777; /* Dimmer than default body text */
+  color: #7e7974; /* Dimmer than default body text */
 }
 ```
-- Step heading (h3): 1rem, weight 500, #fff, margin-bottom 8px
-- Step content: code block + paragraph, #777 text
+- Step heading (h3): 0.9375rem, weight 500, #fff, margin-bottom 8px
+- Step content: code block + paragraph, #7e7974 text
 
 ### CTA Section
 Final section. Centered, separated by a top border.
@@ -43,13 +43,13 @@ Final section. Centered, separated by a top border.
 .cta {
   text-align: center;
   padding-top: 40px;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid #1e1a18;
 }
 
 .cta h2 {
   font-size: 1.125rem;
   font-weight: 500; /* Lighter than standard h2 */
-  color: #999; /* Muted -- deliberately quieter */
+  color: #a09b96; /* Muted -- deliberately quieter */
   margin-bottom: 24px;
 }
 ```

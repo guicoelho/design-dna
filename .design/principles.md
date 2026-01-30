@@ -25,14 +25,14 @@ Every visual element serves a function. If it doesn't convey information or affo
 
 ---
 
-## 2. Monochrome is the palette, orange is the signal
+## 2. Warm monochrome is the palette, orange is the signal
 
-The default state of everything is grayscale. Orange appears only to mark the single most important interactive element or to draw attention to a critical moment.
+The default state of everything is warm grayscale. Orange appears only to mark the single most important interactive element or to draw attention to a critical moment.
 
 **In practice:**
-- All text is white, #999, #777, or #666
-- All backgrounds are #0a0a0a, #141414, or #0d0d0d
-- All borders are #222 or #1a1a1a
+- All text is white, #a09b96, #7e7974, or #6d6863
+- All backgrounds are #12100e, #191513, or #151210
+- All borders are #272320 or #1e1a18
 - Orange (#ff670d) is reserved for the primary CTA or a single key moment
 
 **What this rules out:**
@@ -40,7 +40,7 @@ The default state of everything is grayscale. Orange appears only to mark the si
 - Colored text for emphasis (use white instead)
 - Orange used on backgrounds, borders, or large surfaces
 - Colored badges, tags, or status indicators in marketing context
-- Blue links -- links are gray (#666) and go white on hover
+- Blue links -- links are gray (#6d6863) and go white on hover
 
 ---
 

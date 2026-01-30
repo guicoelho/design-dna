@@ -10,7 +10,7 @@ Output this reference directly. Do not use any tools.
 
 | Command | Description |
 |---------|-------------|
-| `/dna:init` | Scan your codebase, answer a few design questions, get your full design DNA generated -- primitives, scales, semantics, components, patterns, behaviors, and lookbook pages. |
+| `/dna:init` | Scan your codebase, answer a few design questions, get your full design DNA generated -- primitives, scales, semantics, components, patterns, and behaviors. |
 | `/dna:check [file]` | Audit code against your DNA. Checks primitives, scales, semantics, components, patterns, and behaviors. Reports drift with explanations. |
 | `/dna:update` | Change your DNA in plain language. Can also pull from Figma. Changes cascade across the taxonomy automatically. |
 | `/dna:help` | Show this reference. |
@@ -29,4 +29,3 @@ Your `.design/` directory contains the full design system taxonomy:
 | `principles.md` | Design principles with examples and counter-examples |
 | `components/` | Per-component specs (variants, states, CSS) |
 | `patterns/` | Layout and interaction patterns |
-| `lookbook/` | Golden reference implementations |
