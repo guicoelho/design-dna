@@ -739,36 +739,123 @@ Immediately generate lookbook pages relevant to this product. Do not ask -- just
 
 ---
 
-## Step 6: Update CLAUDE.md
+## Step 6: Generate Compressed DNA Reference and Update CLAUDE.md
 
-This is critical. After DNA is generated, update `CLAUDE.md` (create if needed) to ensure Claude **always** references the DNA for any UI work.
+This is the most critical step. Instead of telling Claude to go read `.design/` files (which requires retrieval decisions that fail ~50% of the time), we embed a compressed design system reference **directly in CLAUDE.md** so it's passively available in every context window.
 
-Read the existing `CLAUDE.md` first. If it exists, append. If not, create.
+Read the existing `CLAUDE.md` first. If it exists, preserve any non-DNA content. If not, create it.
 
-Add this block:
+### 6a. Generate the Compressed Block
+
+Read all generated `.design/` files and compress them into a single reference block. The block goes between `<!-- dna:begin -->` and `<!-- dna:end -->` markers.
+
+**Format rules:**
+- Markdown tables for value lookups (colors, spacing, typography scale)
+- Inline `key=value | key=value` for compact mappings (semantic colors, elevation levels)
+- One dense paragraph per component with key CSS properties and states
+- No prose explanations -- values, mappings, and rules only
+- Prefix constraints with "No" for scannability
+- Target: under 8KB total
+
+**Block structure -- generate each section by reading from the corresponding `.design/` files:**
+
+```markdown
+<!-- dna:begin -->
+## Design DNA Reference
+
+> [One-line description of the product and its visual identity, from DNA.md intro]
+
+### Principles
+[5 numbered one-liners from principles.md -- just the principle name and core statement, no examples]
+
+### Colors
+[From primitives.md: accent color(s) as inline text, then full neutral scale as a markdown table with columns: Step | Hex | Role]
+
+### Semantic Colors
+[From semantics.md: compact inline format grouped by category]
+Bg: page=# | surface=# | recessed=# | interactive=#
+Borders: default=# | dim=# | interactive=#
+Text: primary=# | body=# | dim=# | muted=# | code=# | disabled=#
+Links: [default] -> [hover] on hover | [rules]
+[Any other semantic color assignments]
+Elevation (via bg, not shadow): [From primitives.md + semantics.md: inline format for bg-color levels]
+
+### Typography
+[From primitives.md + semantics.md]
+Body: [family], [fallback stack]
+Mono: [family], [fallback stack]
+Weights: [weight=usage | weight=usage]. Never [forbidden weights].
+Base: [size]. [scaling rules].
+[Type scale as markdown table with columns: Name | Size | Use]
+Line-height: [context=value | context=value]. [Letter-spacing rules].
+[Hierarchy method: e.g. "Hierarchy by color not size: #fff > #999 > #777"]
+
+### Headings
+[From semantics.md: each heading level as inline format with size/weight/color/margin]
+[Exceptions noted inline]
+[Forbidden levels]
+
+### Spacing
+[From primitives.md: base unit, then scale as markdown table with columns: Value | Usage]
+
+### Shape
+[From primitives.md: radius per context, border width, special techniques like button emboss]
+
+### Motion
+[From primitives.md: duration, easing, what animates vs doesn't -- all as terse rules]
+
+### Layout
+[From scales.md + patterns/page-layout.md: grid definition, breakpoint, page padding, collapse behavior]
+[Color mode and density rules]
+
+### Components
+[From components/*.md: one dense paragraph per component]
+**[Name]**: [key CSS properties] | [hover state] | [active state] | [key rules]
+[Repeat for each component]
+
+### Patterns
+[From patterns/*.md: terse 1-2 line summaries of each pattern]
+
+### Forbidden
+[Consolidated from principles.md, DNA.md, and primitives.md: pipe-delimited flat list]
+No [thing] | No [thing] | No [thing] | ...
+
+### Tech Stack
+[From DNA.md: one line with framework, styling, deployment]
+
+### Deep Reference
+Full component CSS/states: .design/components/*.md
+Full pattern specs: .design/patterns/*.md
+Lookbook implementations: .design/lookbook/
+Detailed principles + examples: .design/principles.md
+Detailed behaviors + states: .design/behaviors.md
+Product context and mental model: .design/DNA.md
+<!-- dna:end -->
+```
+
+### 6b. Write to CLAUDE.md
+
+The final CLAUDE.md structure:
 
 ```markdown
 # Design System
 
 This project uses DESIGN DNA for design system enforcement.
 
-## Before Writing Any UI Code
-
-ALWAYS read `.design/DNA.md` before generating, modifying, or reviewing any UI code. This is not optional.
-
-- For primitive values: `.design/primitives.md`
-- For responsive/grid/density rules: `.design/scales.md`
-- For semantic mappings: `.design/semantics.md`
-- For component specs: `.design/components/`
-- For interaction patterns: `.design/patterns/`
-- For behavior rules: `.design/behaviors.md`
-- For design principles: `.design/principles.md`
-- For reference implementations: `.design/lookbook/`
-
-Every UI decision must align with the DNA. If a decision isn't covered by the DNA, flag it and ask rather than guessing.
+<!-- dna:begin -->
+## Design DNA Reference
+...compressed block from 6a...
+<!-- dna:end -->
 
 Run `/dna:check` after making UI changes to verify compliance.
 ```
+
+**If CLAUDE.md already exists:**
+- If it contains `<!-- dna:begin -->` and `<!-- dna:end -->` markers, replace the content between them (inclusive of markers).
+- If it contains a `# Design System` section but no markers, replace the entire Design System section with the new format.
+- If it has other non-DNA content, preserve it.
+
+**If CLAUDE.md does not exist:** Create it with the structure above.
 
 ---
 
@@ -784,7 +871,7 @@ Present the user with:
 3. How to give feedback:
    - "If anything doesn't look right, just tell me what's off. You don't need to speak in specs -- describe it naturally and I'll update the DNA. Run `/dna:update` anytime."
 4. What happens next:
-   - "From now on, Claude will automatically read your DNA before doing any UI work on this project. The design system is active."
+   - "From now on, your design system values are embedded directly in CLAUDE.md -- Claude has them in context for every interaction, no file lookups needed. The design system is active."
 
 ---
 
