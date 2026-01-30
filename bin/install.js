@@ -57,11 +57,9 @@ async function main() {
   const commandCount = copyDir(COMMANDS_DIR, commandsDest);
 
   console.log();
-  console.log(`  Installed ${commandCount} commands to ${commandsDest}`);
+  console.log(`  ✓ Installed ${commandCount} commands to ${commandsDest}`);
   console.log();
-  console.log("  Next steps:");
-  console.log("  1. Restart Claude Code to load the new commands");
-  console.log("  2. Run /dna:init to capture your design DNA");
+  console.log("  Restart Claude Code, then run /dna:init to capture your design DNA.");
   console.log();
 
   rl.close();
