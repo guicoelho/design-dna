@@ -45,7 +45,7 @@
       <div class="step">
         <h3>1. Init</h3>
         <pre><code>/dna:init</code></pre>
-        <p>Scans your codebase, asks you a few design questions, and generates your DNA: a structured spec of your product's taste, principles, and visual language. Also generates lookbook pages as golden reference implementations.</p>
+        <p>Scans your codebase, asks you a few design questions, and generates your DNA: a structured spec of your product's taste, principles, and visual language. Also generates lookbook pages and embeds a compressed design reference directly into your CLAUDE.md &mdash; passive context for every UI task.</p>
       </div>
 
       <div class="step">
@@ -80,11 +80,16 @@ Judgment:
     <section class="output-section" id="output">
       <h2>What Gets Generated</h2>
       <pre><code>.design/
-  DNA.md              # Your taste, encoded
+  DNA.md              # Product context and mental model
   principles.md       # Design principles with examples
+  primitives.md       # Raw design values (colors, type, spacing)
+  scales.md           # Graduated value systems
+  semantics.md        # Meaning-mapped values (roles, states)
+  behaviors.md        # Interaction and motion specs
   components/         # Per-component specs
-  patterns/           # Interaction and layout patterns
+  patterns/           # Layout and content patterns
   lookbook/           # Golden reference implementations</code></pre>
+      <p>Your CLAUDE.md gets an embedded compressed reference &mdash; Claude has passive context without reading files. Stays in sync automatically.</p>
     </section>
 
     <section class="cta" id="cta">
