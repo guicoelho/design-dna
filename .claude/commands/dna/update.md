@@ -19,6 +19,10 @@ Check `$ARGUMENTS` for free-text feedback. The user might say things like:
 - "links should underline on hover"
 - "pull the latest from our Figma file"
 - "sync colors from Figma, they updated the palette"
+- "we need dark mode support"
+- "add a compact density mode"
+- "loading should use skeletons, not spinners"
+- "headings should be larger"
 
 If `$ARGUMENTS` is empty, ask: "What's not working? Describe what you'd like to change -- you don't need to speak in specs."
 
@@ -29,15 +33,21 @@ If `$ARGUMENTS` is empty, ask: "What's not working? Describe what you'd like to 
 Read the full design system:
 
 - `.design/DNA.md`
+- `.design/primitives.md`
+- `.design/scales.md`
+- `.design/semantics.md`
+- `.design/behaviors.md`
 - All files in `.design/components/` and `.design/patterns/`
 - `.design/principles.md`
+
+If any taxonomy files are missing (primitives.md, scales.md, semantics.md, behaviors.md), inform the user: "Your DNA uses an older structure. I'll create the missing taxonomy files as part of this update." Generate the missing files using the current DNA.md content and component/pattern specs as source material, following the templates defined in `/dna:init`.
 
 ### Step 2: Gather Input
 
 **If the feedback references Figma** (e.g., "pull from Figma", "sync with Figma", "Figma has the latest colors"):
 
 1. Check if Figma MCP tools are available.
-2. If available, use them to fetch the relevant tokens/components from Figma.
+2. If available, use them to fetch the relevant primitives/components from Figma.
 3. If not available but the user provides a Figma URL, use WebFetch to extract what you can.
 4. Diff the Figma values against the current DNA. Present the differences as your proposed changes (Step 3).
 
@@ -50,20 +60,52 @@ Read the full design system:
 
 ### Step 3: Interpret the Feedback
 
-Translate the user's natural language (and any Figma/external data) into specific DNA changes. Map their feedback to concrete spec updates:
+Translate the user's natural language (and any Figma/external data) into specific DNA changes. Route each change to the correct file:
 
-- "buttons feel too chunky" -> reduce button padding, possibly reduce border-radius, check font-size
-- "darker color palette" -> update color tokens across the board
-- "stop using modals" -> update patterns, add principle about slide-overs vs modals
-- "pull colors from Figma" -> show diff of Figma colors vs DNA colors, propose replacements
+**Primitive changes** (-> `primitives.md`):
+- "buttons feel too chunky" -> spacing values, possibly border-radius
+- "darker color palette" -> color palette and neutral scale
+- "make the font smaller" -> base size or type scale
+- "too much border radius, sharpen things up" -> border radius scale
+- "shadows feel too heavy" -> shadow definitions
+
+**Scale changes** (-> `scales.md`):
+- "we need to support mobile" -> responsive breakpoints, strategy
+- "add a compact density mode" -> density modes
+- "we need dark mode" -> color modes, mapping strategy
+- "the grid is too rigid" -> grid usage philosophy
+
+**Semantic changes** (-> `semantics.md`):
+- "headings should be larger" -> typography semantics, possibly primitives
+- "use blue for links, not gray" -> interactive colors
+- "we need proper error/success colors" -> feedback colors
+- "cards should feel more elevated" -> elevation semantics
+
+**Behavior changes** (-> `behaviors.md`):
+- "loading should use skeletons, not spinners" -> loading section
+- "stop using modals, we want slide-overs" -> state communication + patterns
+- "links should underline on hover" -> hover section
+- "validate as the user types" -> validation timing
+- "add reduced motion support" -> reduced motion section
+
+**Component changes** (-> `components/*.md`):
+- "buttons should have rounded corners" -> specific component spec + primitives
+- "the card needs a hover state" -> component spec + behaviors
+
+**Pattern changes** (-> `patterns/*.md`):
+- "forms should be single-column" -> layout pattern
+- "stop using modals for creation" -> pattern spec
+
+**Principle changes** (-> `principles.md`):
+- "we should never use decorative icons" -> principle addition/update
 
 Present your interpretation back to the user:
 
 "Here's what I'd change based on your feedback:
 
-1. **Button padding**: `px-4 py-2` -> `px-3 py-1.5` (tighter, more compact)
-2. **Button radius**: `8px` -> `6px` (sharper, less rounded)
-3. **Button font-size**: keeping `14px` (seems right for the new sizing)
+1. **[File: section]**: `old value` -> `new value` (reason)
+2. **[File: section]**: `old value` -> `new value` (reason)
+3. ...
 
 Does this capture what you mean? Anything to adjust?"
 
@@ -75,8 +117,9 @@ Once confirmed:
 
 1. Edit the relevant `.design/` files using Edit. Preserve structure.
 2. Create new component/pattern files if needed.
-3. If the change affects values in DNA.md (visual language tokens, tech stack, product mental model), update DNA.md too.
-4. If you add new component or pattern files, add them to the inventory lists in DNA.md sections 4/5.
+3. **Cascade check**: If the change affects primitives, check if semantics.md references those primitives and update semantic mappings accordingly. If semantics change, check if component specs reference those semantics. Changes cascade: primitive -> semantic -> component -> pattern.
+4. If you add new component or pattern files, add them to the inventory lists in DNA.md (Components and Patterns sections).
+5. Update the summary paragraphs in DNA.md (Primitives, Scales & Systems, Semantics, Behaviors sections) if the changes materially affect those summaries.
 
 ### Step 5: Scan for Impact
 
@@ -112,4 +155,6 @@ If no lookbook pages exist, skip this step silently.
 - Meet the user where they are. Accept vague feedback and make it specific.
 - Always confirm your interpretation before applying changes.
 - Always scan for codebase impact.
+- Always check for cascade effects (primitive -> semantic -> component).
 - If the user mentions Figma, treat it as a source of truth -- fetch from it, diff against DNA, propose changes like any other update.
+- If taxonomy files are missing, create them as part of the update -- never leave the DNA in a partial state.

@@ -6,8 +6,12 @@ This project uses DESIGN DNA for design system enforcement.
 
 ALWAYS read `.design/DNA.md` before generating, modifying, or reviewing any UI code. This is not optional.
 
+- For primitive values: `.design/primitives.md`
+- For responsive/grid/density rules: `.design/scales.md`
+- For semantic mappings: `.design/semantics.md`
 - For component specs: `.design/components/`
 - For interaction patterns: `.design/patterns/`
+- For behavior rules: `.design/behaviors.md`
 - For design principles: `.design/principles.md`
 - For reference implementations: `.design/lookbook/`
 
