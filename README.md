@@ -35,9 +35,9 @@ Design DNA lets you encode your taste once -- your preferences, your principles,
 
 Design DNA scans your codebase, asks you a few high-level design questions and generates your DNA: a structured spec of your product's taste, principles, and visual language.
 
-It also generates lookbook pages: golden reference implementations that show the DNA in action, and serve as guidance for Claude. 
+It also generates lookbook pages -- golden reference implementations that show the DNA in action -- and embeds a compressed design system reference directly into your `CLAUDE.md` so Claude has passive context for every UI task.
 
-**Output:** `.design/DNA.md`, component specs, pattern specs, lookbook pages.
+**Output:** `.design/` taxonomy, lookbook pages, compressed reference in `CLAUDE.md`.
 
 ### 2. Check
 
@@ -84,14 +84,18 @@ That's it. Four commands.
 
 ```
 .design/
-  DNA.md              # Your taste, encoded -- the single source of truth
+  DNA.md              # Product context and mental model -- the index
   principles.md       # Design principles with examples
+  primitives.md       # Raw design values (colors, type, spacing, shape, motion)
+  scales.md           # Graduated value systems
+  semantics.md        # Meaning-mapped values (roles, states, contexts)
+  behaviors.md        # Interaction and motion specs
   components/         # Per-component specs (variants, states, values)
-  patterns/           # Interaction and layout patterns
+  patterns/           # Layout and content patterns
   lookbook/           # Golden reference implementations
 ```
 
-Design DNA also updates your `CLAUDE.md` so Claude reads the DNA before any UI work -- automatically.
+Design DNA also embeds a compressed design system reference directly into your `CLAUDE.md` -- Claude has passive context for every UI task without reading files. The embedded reference stays in sync: `/dna:check` detects staleness, `/dna:update` regenerates it automatically.
 
 ---
 
